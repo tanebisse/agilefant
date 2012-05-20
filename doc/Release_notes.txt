@@ -1,6 +1,6 @@
-Agilefant 2.5
+Agilefant 2.5.1
 Release notes
-2012-03-23
+2012-05-20
 --
 
 Please spend a couple of minutes to register your organization at
@@ -10,6 +10,11 @@ This helps us keep a full-featured Agilefant free-of-charge forever!
 +--------------------+
 |     CHANGESET      |
 +--------------------+
+
+Changes from 2.5.0
+2012-05-20
++ Fixed issue that prevented moving stories with children (or the children themselves) to another product
+  http://agilefant.freeforums.org/2-5-0-can-t-move-stories-with-children-in-tree-view-t174.html
 
 Changes from 2.0.5
 2012-03-23

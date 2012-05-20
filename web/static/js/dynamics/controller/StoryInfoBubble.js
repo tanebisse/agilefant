@@ -213,12 +213,15 @@ StoryInfoBubble.prototype._createConfig = function() {
   var checkDoneAndMovedFunction = function (model) {
 	StoryInfoBubble.prototype.confirmTasksAndChildrenToDone (model, this.treeController, true);
 	StoryInfoBubble.prototype.checkForMoveStory(model);
-	}
+	};
   var config = new DynamicTableConfiguration( {
     leftWidth: '25%',
     rightWidth: '74%',
     closeRowCallback: null,
-	beforeCommitFunction: checkDoneAndMovedFunction,
+	// The line below switched back to as it was in 2.0.5 when moving stories still worked;
+	// this most likely breaks the recursive done setting, but still we're better off this way
+    // beforeCommitFunction: checkDoneAndMovedFunction
+	beforeCommitFunction: StoryInfoBubble.prototype.checkForMoveStory,
     validators: [ ]
   });
   config.addColumnConfiguration(0, {
