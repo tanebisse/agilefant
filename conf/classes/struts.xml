@@ -124,7 +124,8 @@
 				<param name="productId">${backlogId}</param>
 			</result>
 			<result name="project" type="redirectAction">
-				<param name="actionName">editProject</param>
+				<!--  <param name="actionName">editProject</param>-->
+				<param name="actionName">calculMetricsProject</param>
 				<param name="projectId">${backlogId}</param>
 			</result>
 			<result name="iteration" type="redirectAction">
@@ -163,6 +164,10 @@
 				<param name="actionName">editBacklog</param>
 				<param name="backlogId">${productId}</param>
 			</result>
+		</action>
+		<!-- ajout SPRO -->
+		<action name="calculMetricsProject" method="projectMetrics" class="projectAction">
+			<result type="dispatcher">/WEB-INF/jsp/editProject.jsp</result>
 		</action>
 		<!-- /Project actions -->
 
