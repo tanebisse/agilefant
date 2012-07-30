@@ -7,19 +7,53 @@
 
 <div class="structure-main-block project-color-header" id="backlogInfo">
 
-<ul class="backlogTabs">
-  <li class="">
-  	<a href="#backlogDetails"><span><img alt="Edit" src="static/img/info.png" /> Info</span></a>
-  </li>
-  <!-- <li class=""><a href="#backlogAssignees"><span><img alt="Edit" src="static/img/team.png" /> Assignees</span></a></li>-->
-  <li id="projectActions" class="ui-state-disabled dynamictable-captionaction ui-corner-all" style="float: right; opacity: 1 !important; filter: alpha(opacity = 100) !important; border-width: 1px !important;">
-    Actions
-  </li>
-</ul>
+	<ul class="backlogTabs">
+	  <li class="">
+	  	<a href="#backlogDetails"><span><img alt="Edit" src="static/img/info.png" /> Info</span></a>
+	  </li>
+	  <!-- <li class=""><a href="#backlogAssignees"><span><img alt="Edit" src="static/img/team.png" /> Assignees</span></a></li>-->
+	  <li id="projectActions" class="ui-state-disabled dynamictable-captionaction ui-corner-all" style="float: right; opacity: 1 !important; filter: alpha(opacity = 100) !important; border-width: 1px !important;">
+	    Actions
+	  </li>
+	</ul>
 
-<div class="details" id="backlogDetails" style="overflow: auto;"></div>
-<!-- <div class="details" id="backlogAssignees"></div> -->
+	<div class="details" id="backlogDetails" style="overflow: auto;"></div>
+	<!-- <div class="details" id="backlogAssignees"></div> -->
 
+</div>
+
+<div class="structure-main-block project-color-header ui-tabs ui-widget ui-widget-content ui-corner-all" id="storyPointInfo" style="margin-top: 3em;">
+	<ul class="backlogTabs ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all">
+	  <li class="ui-state-default ui-corner-top ui-tabs-selected ui-state-active">
+	  	<a href="#storyPointDetails"><span><img src="static/img/info.png" /> StoryPoint Info</span></a>
+	  </li>
+	</ul>
+	<div class="details ui-tabs-panel ui-widget-content ui-corner-bottom" id="storyPointDetails" style="overflow: auto;min-height: 100px;">
+		<table  rules="all">
+			<thead>
+				<tr>
+					<th>TOTAL NOT DIFERRED</th>
+					<th>NOT STARTED</th>
+					<th>STARTED</th>
+					<th>PENDING</th>
+					<th>BLOCKED</th>
+					<th>IMPLEMENTED</th>
+					<th>DEFERRED</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td align="center"><ww:property value="projectMetrics.storyPoints" /></td>
+					<td align="center"><ww:property value="projectMetrics.notStartedStoryPoints" /></td>
+					<td align="center"><ww:property value="projectMetrics.startedStoryPoints" /></td>
+					<td align="center"><ww:property value="projectMetrics.pendingStoryPoints" /></td>
+					<td align="center"><ww:property value="projectMetrics.blockedStoryPoints" /></td>
+					<td align="center"><ww:property value="projectMetrics.implmentedStoryPoints" /></td>
+					<td align="center"><ww:property value="projectMetrics.deferredStoryPoint" /></td>
+				</tr>
+			</tbody>		
+		</table>
+	</div>
 </div>
 
 
