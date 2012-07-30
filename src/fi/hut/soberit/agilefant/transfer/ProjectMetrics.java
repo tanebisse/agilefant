@@ -6,6 +6,12 @@ public class ProjectMetrics {
 
     private int storyPoints = 0;
     private int completedStoryPoints = 0;
+    private int notStartedStoryPoints = 0;
+    private int startedStoryPoints = 0;
+    private int pendingStoryPoints = 0;
+    private int blockedStoryPoints = 0;
+    private int implmentedStoryPoints = 0;
+    private int deferredStoryPoint = 0;
     private int storyPointsCompletedPercentage = 0;
     private int numberOfStories = 0;
     private int numberOfDoneStories = 0;
@@ -19,6 +25,7 @@ public class ProjectMetrics {
     private int totalValue = 0;
     private int completedValue = 0;
     private int valuePercentage = 0;
+    
 
     public void setStoryPoints(int storyPoints) {
         this.storyPoints = storyPoints;
@@ -139,4 +146,53 @@ public class ProjectMetrics {
     public void setValuePercentage(int valuePercentage) {
         this.valuePercentage = valuePercentage;
     }
+
+    public int getNotStartedStoryPoints() {
+        return notStartedStoryPoints;
+    }
+
+    public void setNotStartedStoryPoints(int notStartedStoryPoints) {
+        this.notStartedStoryPoints = notStartedStoryPoints;
+    }
+
+    public int getStartedStoryPoints() {
+        return startedStoryPoints;
+    }
+
+    public void setStartedStoryPoints(int startedStoryPoints) {
+        this.startedStoryPoints = startedStoryPoints;
+    }
+
+    public int getPendingStoryPoints() {
+        return pendingStoryPoints;
+    }
+
+    public void setPendingStoryPoints(int pendingStoryPoints) {
+        this.pendingStoryPoints = pendingStoryPoints;
+    }
+
+    public int getBlockedStoryPoints() {
+        return blockedStoryPoints;
+    }
+
+    public void setBlockedStoryPoints(int blockedStoryPoints) {
+        this.blockedStoryPoints = blockedStoryPoints;
+    }
+
+    public int getImplmentedStoryPoints() {
+        return implmentedStoryPoints;
+    }
+
+    public void setImplmentedStoryPoints(int implmentedStoryPoints) {
+        this.implmentedStoryPoints = implmentedStoryPoints;
+    }
+
+    public int getDeferredStoryPoint() {
+        return deferredStoryPoint;
+    }
+
+    public void setDeferredStoryPoint(int deferredStoryPoint) {
+        this.deferredStoryPoint = deferredStoryPoint;
+    }   
+    
 }
