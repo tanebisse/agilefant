@@ -143,13 +143,7 @@ public class ProjectDAOHibernate extends GenericDAOHibernate<Project> implements
         List<Object[]> res = asList(crit);
         ProjectMetrics metrics = new ProjectMetrics();
         for(Object[] row : res) {
-            if((StoryState)row[3] == StoryState.DONE) {
-                metrics.setCompletedStoryPoints(metrics.getCompletedStoryPoints() + toInt(row[0]));
-                metrics.setNumberOfDoneStories(metrics.getNumberOfDoneStories() + toInt(row[2]));
-                
-                // Value metric
-                metrics.setCompletedValue(metrics.getCompletedValue() + toInt(row[1]));
-            } 
+            
             if((StoryState)row[3] != StoryState.DEFERRED) {
                 metrics.setStoryPoints(metrics.getStoryPoints() + toInt(row[0]));
                 metrics.setNumberOfStories(metrics.getNumberOfStories() + toInt(row[2]));
@@ -157,6 +151,35 @@ public class ProjectDAOHibernate extends GenericDAOHibernate<Project> implements
                 // Value metric
                 metrics.setTotalValue(metrics.getTotalValue() + toInt(row[1]));
             }
+            switch ((StoryState)row[3]){
+                case BLOCKED:
+                    metrics.setBlockedStoryPoints(metrics.getBlockedStoryPoints() + toInt(row[0]));
+                    break;
+                case DEFERRED:
+                    metrics.setDeferredStoryPoint(metrics.getDeferredStoryPoint() + toInt(row[0]));
+                    break;
+                case DONE:
+                    metrics.setCompletedStoryPoints(metrics.getCompletedStoryPoints() + toInt(row[0]));
+                    metrics.setNumberOfDoneStories(metrics.getNumberOfDoneStories() + toInt(row[2]));                    
+                    // Value metric
+                    metrics.setCompletedValue(metrics.getCompletedValue() + toInt(row[1]));
+                    break;
+                case IMPLEMENTED:
+                    metrics.setImplmentedStoryPoints(metrics.getImplmentedStoryPoints() + toInt(row[0]));
+                    break;
+                case NOT_STARTED:
+                    metrics.setNotStartedStoryPoints(metrics.getNotStartedStoryPoints() + toInt(row[0]));
+                    break;
+                case PENDING:
+                    metrics.setPendingStoryPoints(metrics.getPendingStoryPoints() + toInt(row[0]));
+                    break;
+                case STARTED:
+                    metrics.setStartedStoryPoints(metrics.getStartedStoryPoints() + toInt(row[0]));
+                    break;
+                default:
+                    break;            
+            }
+            
         }
         return metrics;
     }
