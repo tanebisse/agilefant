@@ -159,8 +159,9 @@ public class ProjectDAOHibernate extends GenericDAOHibernate<Project> implements
                     metrics.setDeferredStoryPoint(metrics.getDeferredStoryPoint() + toInt(row[0]));
                     break;
                 case DONE:
-                    metrics.setCompletedStoryPoints(metrics.getCompletedStoryPoints() + toInt(row[0]));
-                    metrics.setNumberOfDoneStories(metrics.getNumberOfDoneStories() + toInt(row[2]));                    
+                    //metrics.setCompletedStoryPoints(metrics.getCompletedStoryPoints() + toInt(row[0]));
+                    //metrics.setNumberOfDoneStories(metrics.getNumberOfDoneStories() + toInt(row[2]));  
+                    metrics.setNumberOfDoneStories(metrics.getNumberOfDoneStories() + toInt(row[0]));  
                     // Value metric
                     metrics.setCompletedValue(metrics.getCompletedValue() + toInt(row[1]));
                     break;

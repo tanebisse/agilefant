@@ -8,6 +8,12 @@ public class IterationMetrics {
     private ExactEstimate spentEffort = new ExactEstimate(0);
     private Integer storyPoints = new Integer(0);
     private Integer doneStoryPoints = new Integer(0);
+    private int notStartedStoryPoints = new Integer(0);
+    private int startedStoryPoints = new Integer(0);
+    private int pendingStoryPoints = new Integer(0);
+    private int blockedStoryPoints = new Integer(0);
+    private int implmentedStoryPoints = new Integer(0);
+    private int deferredStoryPoint = new Integer(0);
     
     private Integer completedTasks = new Integer(0);
     private Integer totalTasks = new Integer(0);
@@ -150,6 +156,43 @@ public class IterationMetrics {
 
     public void setDoneStoryPoints(Integer doneStoryPoints) {
         this.doneStoryPoints = doneStoryPoints;
+    }
+    
+    public int getNotStartedStoryPoints() {
+        return notStartedStoryPoints;
+    }
+    public void setNotStartedStoryPoints(int notStartedStoryPoints) {
+        this.notStartedStoryPoints = notStartedStoryPoints;
+    }
+    public int getStartedStoryPoints() {
+        return startedStoryPoints;
+    }
+    public void setStartedStoryPoints(int startedStoryPoints) {
+        this.startedStoryPoints = startedStoryPoints;
+    }
+    public int getPendingStoryPoints() {
+        return pendingStoryPoints;
+    }
+    public void setPendingStoryPoints(int pendingStoryPoints) {
+        this.pendingStoryPoints = pendingStoryPoints;
+    }
+    public int getBlockedStoryPoints() {
+        return blockedStoryPoints;
+    }
+    public void setBlockedStoryPoints(int blockedStoryPoints) {
+        this.blockedStoryPoints = blockedStoryPoints;
+    }
+    public int getImplmentedStoryPoints() {
+        return implmentedStoryPoints;
+    }
+    public void setImplmentedStoryPoints(int implmentedStoryPoints) {
+        this.implmentedStoryPoints = implmentedStoryPoints;
+    }
+    public int getDeferredStoryPoint() {
+        return deferredStoryPoint;
+    }
+    public void setDeferredStoryPoint(int deferredStoryPoint) {
+        this.deferredStoryPoint = deferredStoryPoint;
     }
     public int getDaysLeftPercentage() {
         return daysLeftPercentage;

@@ -76,7 +76,7 @@ public class IterationDAOHibernate extends GenericDAOHibernate<Iteration>
         Criteria criteria = getCurrentSession().createCriteria(Story.class);
         criteria.add(Restrictions.eq("backlog.id", iterationId));
         criteria.setProjection(Projections.projectionList().add(
-                Projections.property("state")).add(Projections.rowCount(),
+                Projections.property("state")).add(Projections.sum("storyPoints"),
                 "storyCount").add(Projections.groupProperty("state"), "state"));
 
         Map<StoryState, Integer> results = new EnumMap<StoryState, Integer>(
@@ -85,7 +85,6 @@ public class IterationDAOHibernate extends GenericDAOHibernate<Iteration>
         for (StoryState state : StoryState.values()) {
             results.put(state, 0);
         }
-
         List<Object[]> queryResults = asList(criteria);
 
         for (Object[] row : queryResults) {

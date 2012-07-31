@@ -42,6 +42,7 @@ import fi.hut.soberit.agilefant.model.IterationHistoryEntry;
 import fi.hut.soberit.agilefant.model.Project;
 import fi.hut.soberit.agilefant.model.SignedExactEstimate;
 import fi.hut.soberit.agilefant.model.Story;
+import fi.hut.soberit.agilefant.model.StoryState;
 import fi.hut.soberit.agilefant.model.Task;
 import fi.hut.soberit.agilefant.model.User;
 import fi.hut.soberit.agilefant.transfer.AssignmentTO;
@@ -283,6 +284,14 @@ public class IterationBusinessImpl extends GenericBusinessImpl<Iteration>
                 .getStoryPointSumByBacklog(iteration));
         metrics.setDoneStoryPoints(backlogBusiness
                 .calculateDoneStoryPointSum(iteration.getId()));
+        // ajout SPRO
+        Map<StoryState, Integer> data = iterationDAO.countIterationStoriesByState(iteration.getId());
+        metrics.setNotStartedStoryPoints(data.get(StoryState.NOT_STARTED));
+        metrics.setStartedStoryPoints(data.get(StoryState.STARTED));
+        metrics.setPendingStoryPoints(data.get(StoryState.PENDING));
+        metrics.setBlockedStoryPoints(data.get(StoryState.BLOCKED));
+        metrics.setImplmentedStoryPoints(data.get(StoryState.IMPLEMENTED));
+        metrics.setDeferredStoryPoint(data.get(StoryState.DEFERRED));
 
         // 3. Set spent effort
         long spentEffort = hourEntryBusiness

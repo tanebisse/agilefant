@@ -32,12 +32,13 @@
 		<table  rules="all">
 			<thead>
 				<tr>
-					<th>TOTAL NOT DIFERRED</th>
+					<th>TOTAL NOT DEFERRED</th>
 					<th>NOT STARTED</th>
 					<th>STARTED</th>
 					<th>PENDING</th>
 					<th>BLOCKED</th>
 					<th>IMPLEMENTED</th>
+					<th>DONE</th>
 					<th>DEFERRED</th>
 				</tr>
 			</thead>
@@ -49,6 +50,7 @@
 					<td align="center"><ww:property value="projectMetrics.pendingStoryPoints" /></td>
 					<td align="center"><ww:property value="projectMetrics.blockedStoryPoints" /></td>
 					<td align="center"><ww:property value="projectMetrics.implmentedStoryPoints" /></td>
+					<td align="center"><ww:property value="projectMetrics.numberOfDoneStories" /></td>
 					<td align="center"><ww:property value="projectMetrics.deferredStoryPoint" /></td>
 				</tr>
 			</tbody>		
