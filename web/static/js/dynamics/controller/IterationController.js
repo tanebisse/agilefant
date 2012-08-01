@@ -18,6 +18,7 @@ var IterationController = function IterationController(options) {
   this.burndownElement = options.burndownElement;
   this.tabs = options.tabs;
   this.historyElement = options.historyElement;
+  this.storyPointDetails = options.storyPointDetails;
   this.init();
   
   this.initAssigneeConfiguration();
@@ -209,6 +210,7 @@ IterationController.prototype.reloadBurndown = function() {
 };
 IterationController.prototype.reloadMetricsBox = function() {
   this.metricsElement.load("ajax/iterationMetrics.action", {iterationId: this.id});
+  this.storyPointDetails.load("ajax/iterationStoryInfo.action", {iterationId: this.id});
   this.reloadBurndown();
   document.body.style.cursor = "default";
 };
