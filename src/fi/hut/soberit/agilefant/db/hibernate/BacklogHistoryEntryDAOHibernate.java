@@ -1,5 +1,6 @@
 package fi.hut.soberit.agilefant.db.hibernate;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.Criteria;
@@ -43,6 +44,17 @@ public class BacklogHistoryEntryDAOHibernate extends
                         Projections.max("estimateSum")).add(
                         Projections.max("doneSum")).add(Projections.max("branchMax")));
         List<Object[]> data = asList(crit);
-        return ProjectBurnupData.createFromRawData(data);
+        List<Object[]> newData = new ArrayList<Object[]>();
+        for(Object[] row : data) {
+            long rest = ((Number)row[1]).longValue()-((Number)row[2]).longValue();
+            Object[] newRow = new Object[5];
+            newRow[0] = row[0];
+            newRow[1] = row[1];
+            newRow[2] = row[2];
+            newRow[3] = row[3];
+            newRow[4] = rest;
+            newData.add(newRow);
+        }
+        return ProjectBurnupData.createFromRawData(newData);
     }
 }

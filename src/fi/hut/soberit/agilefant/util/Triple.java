@@ -1,19 +1,22 @@
 package fi.hut.soberit.agilefant.util;
 
-public class Triple<First, Second, Third> {
+public class Triple<First, Second, Third, Fourth> {
 
-    public static final Triple<?, ?, ?> EMPTY = create(null, null, null);
+    public static final Triple<?, ?, ?, ?> EMPTY = create(null, null, null, null);
 
     public final First first;
 
     public final Second second;
     
     public final Third third;
+    
+    public final Fourth fourth;
 
-    public Triple(First first, Second second, Third third) {
+    public Triple(First first, Second second, Third third, Fourth fourth) {
         this.first = first;
         this.second = second;
         this.third = third;
+        this.fourth = fourth;
     }
 
     public First getFirst() {
@@ -27,6 +30,10 @@ public class Triple<First, Second, Third> {
     public Third getThird() {
         return third;
     }
+    
+    public Fourth getFourth() {
+        return fourth;
+    }
 
     @Override
     public int hashCode() {
@@ -35,6 +42,7 @@ public class Triple<First, Second, Third> {
         result = prime * result + ((first == null) ? 0 : first.hashCode());
         result = prime * result + ((second == null) ? 0 : second.hashCode());
         result = prime * result + ((third == null) ? 0 : third.hashCode());
+        result = prime * result + ((fourth == null) ? 0 : fourth.hashCode());
         return result;
     }
 
@@ -44,9 +52,9 @@ public class Triple<First, Second, Third> {
             return true;
         if (obj == null)
             return false;
-        if (!(obj instanceof Triple<?, ?, ?>))
+        if (!(obj instanceof Triple<?, ?, ?, ?>))
             return false;
-        Triple<?, ?, ?> other = (Triple<?, ?, ?>) obj;
+        Triple<?, ?, ?, ?> other = (Triple<?, ?, ?, ?>) obj;
         if (first == null) {
             if (other.first != null)
                 return false;
@@ -61,6 +69,11 @@ public class Triple<First, Second, Third> {
             if (other.third != null)
                 return false;
         }else if (!third.equals(other.third))
+            return false;
+        if (fourth == null) {
+            if (other.fourth != null)
+                return false;
+        }else if (!fourth.equals(other.fourth))
             return false;
         return true;
     }
@@ -86,12 +99,18 @@ public class Triple<First, Second, Third> {
         } else {
             builder.append(third.toString());
         }
+        builder.append("], [");
+        if (fourth == null) {
+            builder.append("null");
+        } else {
+            builder.append(fourth.toString());
+        }
         builder.append("]}");
         return builder.toString();
     }
 
-    public static <First, Second, Third> Triple<First, Second, Third> create(First first,
-            Second second, Third third) {
-        return new Triple<First, Second, Third>(first, second, third);
+    public static <First, Second, Third, Fourth> Triple<First, Second, Third, Fourth> create(First first,
+            Second second, Third third, Fourth fourth) {
+        return new Triple<First, Second, Third, Fourth>(first, second, third, fourth);
     }
 }
